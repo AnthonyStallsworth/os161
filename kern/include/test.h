@@ -35,6 +35,7 @@
  * functions.
  */
 
+void hello(void);
 
 /* This is only actually available if OPT_SYNCHPROBS is set. */
 int whalemating(int, char **);
@@ -50,6 +51,7 @@ int catmouse(int, char **);
 /* lib tests */
 int arraytest(int, char **);
 int bitmaptest(int, char **);
+int printworld(int, char **);
 int queuetest(int, char **);
 
 /* thread tests */

@@ -454,6 +454,7 @@ cmd_opsmenu(int n, char **a)
 static const char *testmenu[] = {
 	"[at]  Array test                    ",
 	"[bt]  Bitmap test                   ",
+	"[pw]  PrintWorld test               ",
 	"[km1] Kernel malloc test            ",
 	"[km2] kmalloc stress test           ",
 	"[tt1] Thread test 1                 ",
@@ -561,8 +562,9 @@ static struct {
 	{ "kh",         cmd_kheapstats },
 
 	/* base system tests */
-	{ "at",		arraytest },
-	{ "bt",		bitmaptest },
+	{ "at",	arraytest },
+	{ "bt",	bitmaptest },
+	{ "pw",	printworld },
 	{ "km1",	malloctest },
 	{ "km2",	mallocstress },
 #if OPT_NET
@@ -620,7 +622,7 @@ cmd_dispatch(char *cmd)
 	if (nargs==0) {
 		return 0;
 	}
-
+	
 	for (i=0; cmdtable[i].name; i++) {
 		if (*cmdtable[i].name && !strcmp(args[0], cmdtable[i].name)) {
 			KASSERT(cmdtable[i].func!=NULL);
